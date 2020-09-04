@@ -1,0 +1,36 @@
+#!/bin/bash
+# FONTS
+reset_font="\e[0m"
+red_font="\e[31m"
+lred_font="\e[91m"
+green_font="\e[32m"
+lgreen_font="\e[92m"
+yellow_font="\e[33m"
+lyellow_font="\e[93m"
+blue_font="\e[34m"
+lblue_font="\e[94m"
+magenta_font="\e[35m"
+lmagenta_font="\e[95m"
+
+# root check
+if [ $UID != 0 ]
+  then
+    echo -e "$lyellow_font""you need $yellow_font \"root\"  privileges to execute this script.\n\tScript exiting.....$reset_font"
+    exit
+fi
+
+# directories
+src_dir="/opt/vai
+position_dir="$src_dir/position/ld"
+combined_dir="$position_dir/combined"
+lf_dir="$position_dir/lf"
+vhf_dir="$position_dir/vhf"
+sensorqad_dir="$src_dir/sensorqad"
+slf_dir="$sensorqad_dir/lf"
+svhf_itf="$sensorqad_dir/vhf_itf"
+target_dir="~/Documents/$(date +%d%b%Y)"
+
+echo -e "$yellow_fontThis script is written to collecting VOLTS data.\n\n $lmagenta_fontPLEASE WAIT WHILE THE DATA IS BNEING COLLECTED....$reset_font"
+
+mkdir -pv $target_dir
+
